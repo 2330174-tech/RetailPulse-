@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailPulse</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+          <div class="brand-mark">R</div>
+          <div>
+            <strong>RetailPulse</strong>
+            <span>AI Retail Intelligence</span>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" type="button" data-view="overview" title="Overview">
+            <span class="icon">⌂</span>
+            <span>Overview</span>
+          </button>
+          <button class="nav-item" type="button" data-view="customers" title="Customers">
+            <span class="icon">◎</span>
+            <span>Customers</span>
+          </button>
+          <button class="nav-item" type="button" data-view="forecast" title="Forecast">
+            <span class="icon">↗</span>
+            <span>Forecast</span>
+          </button>
+          <button class="nav-item" type="button" data-view="assortment" title="Assortment">
+            <span class="icon">▦</span>
+            <span>Assortment</span>
+          </button>
+        </nav>
+
+        <div class="model-status">
+          <span class="pulse-dot"></span>
+          <div>
+            <strong>Model live</strong>
+            <span>Updated 8 min ago</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Command Center</p>
+            <h1>Customer analytics and demand forecasting</h1>
+          </div>
+          <div class="topbar-actions" aria-label="Dashboard controls">
+            <div class="segmented" role="tablist" aria-label="Time range">
+              <button type="button" class="active" data-range="7d">7D</button>
+              <button type="button" data-range="30d">30D</button>
+              <button type="button" data-range="90d">90D</button>
+            </div>
+            <button class="primary-action" type="button" id="refreshBtn">
+              <span class="icon">↻</span>
+              <span>Refresh</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="metric-grid" aria-label="Performance metrics">
+          <article class="metric-card">
+            <span>Predicted revenue</span>
+            <strong id="revenueMetric">$1.84M</strong>
+            <em class="positive">+12.6%</em>
+          </article>
+          <article class="metric-card">
+            <span>Forecast accuracy</span>
+            <strong id="accuracyMetric">94.2%</strong>
+            <em class="positive">+2.1 pts</em>
+          </article>
+          <article class="metric-card">
+            <span>Churn risk</span>
+            <strong id="churnMetric">8.7%</strong>
+            <em class="negative">+1.3 pts</em>
+          </article>
+          <article class="metric-card">
+            <span>Stockout exposure</span>
+            <strong id="stockoutMetric">$126K</strong>
+            <em class="warning">18 SKUs</em>
+          </article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel demand-panel">
+            <div class="panel-header">
+              <div>
+                <h2>Demand Forecast</h2>
+                <p>Predicted units by week across priority categories</p>
+              </div>
+              <select id="categorySelect" aria-label="Category">
+                <option value="all">All categories</option>
+                <option value="grocery">Grocery</option>
+                <option value="beauty">Beauty</option>
+                <option value="home">Home</option>
+              </select>
+            </div>
+            <canvas id="forecastChart" width="920" height="360" aria-label="Demand forecast chart"></canvas>
+          </article>
+
+          <article class="panel ai-panel">
+            <div class="panel-header">
+              <div>
+                <h2>AI Recommendations</h2>
+                <p>Actions ranked by projected impact</p>
+              </div>
+            </div>
+            <div class="recommendation-list" id="recommendations"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Customer Segments</h2>
+                <p>Live behavioral clustering from transactions and loyalty signals</p>
+              </div>
+            </div>
+            <div class="segment-layout">
+              <canvas id="segmentChart" width="280" height="280" aria-label="Customer segment chart"></canvas>
+              <div class="segment-list" id="segmentList"></div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Store Signals</h2>
+                <p>Exceptions needing planner attention</p>
+              </div>
+            </div>
+            <div class="signal-table">
+              <div class="table-row table-head">
+                <span>Location</span>
+                <span>Signal</span>
+                <span>Priority</span>
+              </div>
+              <div class="table-row">
+                <span>Austin 014</span>
+                <span>Weekend beverage spike</span>
+                <strong>High</strong>
+              </div>
+              <div class="table-row">
+                <span>Seattle 022</span>
+                <span>Premium skincare churn</span>
+                <strong>Medium</strong>
+              </div>
+              <div class="table-row">
+                <span>Miami 031</span>
+                <span>Inventory below forecast</span>
+                <strong>High</strong>
+              </div>
+              <div class="table-row">
+                <span>Denver 009</span>
+                <span>Promo cannibalization</span>
+                <strong>Watch</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
