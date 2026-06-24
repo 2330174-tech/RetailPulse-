@@ -5,16 +5,3 @@ __pycache__/
 .streamlit/secrets.toml
 .DS_Store
 Thumbs.db
-.pytest_cache/
-.streamlit/
-report_rendered/
-report_assets/
-*.pyc
-*.pyo
-*.pyd
-*.pdf
-*.docx
-*.png
-*.jpg
-*.jpeg
-*.gif
