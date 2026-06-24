@@ -1,0 +1,16 @@
+.git
+.gitignore
+__pycache__/
+.pytest_cache/
+.streamlit/
+report_rendered/
+report_assets/
+*.pyc
+*.pyo
+*.pyd
+*.pdf
+*.docx
+*.png
+*.jpg
+*.jpeg
+*.gif
